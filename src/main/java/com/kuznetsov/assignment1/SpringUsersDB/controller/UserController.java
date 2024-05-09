@@ -19,7 +19,7 @@ public class UserController {
         return service.findAllUsers();
     }
 
-    @PostMapping("save_student")
+    @PostMapping("save_user")
     public String saveUser(@RequestBody User user) {
         service.saveUser(user);
         return "User saved";

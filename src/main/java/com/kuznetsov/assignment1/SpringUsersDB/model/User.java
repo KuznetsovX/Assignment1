@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NonNull;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @Data
 @Entity
@@ -29,6 +30,15 @@ public class User {
     //optional fields
     private String address;
     private long phoneNumber;
+
+    //auto
+    @Transient
+    @NonNull
+    private int age;
+
+    public int getAge() {
+        return Period.between(dateOfBirth, LocalDate.now()).getYears();
+    }
 
     public User() {}
 
